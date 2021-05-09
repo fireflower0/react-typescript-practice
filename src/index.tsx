@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './shared/Navbar';
 import Home from './pages/Home';
+import Animation from './pages/Animation';
 import About from './pages/About';
 
 const FormWrapper = styled.div`
@@ -24,6 +25,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Route exact path='/' component={Home} />
+        <Route path='/animation' component={Animation} />
         <Route path='/about' component={About} />
       </Router>
     </FormWrapper>

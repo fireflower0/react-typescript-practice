@@ -13,6 +13,10 @@ const Navbar = () => {
     label: 'Home'
   }, {
     id: 2,
+    path: '/animation',
+    label: 'Animation'
+  }, {
+    id: 3,
     path: '/about',
     label: 'About'
   }];
