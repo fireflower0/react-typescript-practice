@@ -21,7 +21,11 @@ const Navbar = () => {
     <Link key={content.id} to={content.path} >
       <Button
         labelText={content.label}
-        styles={{ margin: '5px', width: '100px' }}
+        styles={{
+          width: '100px',
+          color: '#263238',
+          backgroundColor: '#80D8FF'
+        }}
       />
     </Link>
   );

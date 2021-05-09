@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const ButtonWrapper = styled.button`
-  margin: 10px;
+  margin: 5px;
   padding: 5px;
   margin-left: 5px;
   border: none;
