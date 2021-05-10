@@ -18,12 +18,13 @@ const Button = ({ labelText, styles, ...rest }: any) => (
 Button.defaultProps = {
   labelText: '',
   styles: {},
+  onClick: null,
 };
 
 Button.propTypes = {
   labelText: PropTypes.string,
   styles: PropTypes.object,
+  onClick: PropTypes.func,
 };
-
 
 export default Button;
