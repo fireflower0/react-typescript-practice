@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { HeadLine } from '../atoms/HeadLine';
 import FieldSet from '../atoms/FieldSet';
 import Button from '../atoms/Button';
+import TextBox from '../atoms/TextBox';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -12,6 +13,7 @@ const FormWrapper = styled.div`
 
 const Home = () => {
   const [sw, setSw] = useState('Off');
+  const [msg, setMsg] = useState('Hello, world!');
 
   return (
     <FormWrapper>
@@ -49,6 +51,16 @@ const Home = () => {
                />
              )}
             {sw}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='TextBox'
+        form={
+          <div>
+            <TextBox value={msg} setValue={setMsg} />
+            {msg}
           </div>
         }
       />
