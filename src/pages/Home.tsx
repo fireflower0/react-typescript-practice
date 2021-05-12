@@ -4,6 +4,7 @@ import { HeadLine } from '../atoms/HeadLine';
 import FieldSet from '../atoms/FieldSet';
 import Button from '../atoms/Button';
 import TextBox from '../atoms/TextBox';
+import Number from '../atoms/Number';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -14,6 +15,7 @@ const FormWrapper = styled.div`
 const Home = () => {
   const [sw, setSw] = useState('Off');
   const [msg, setMsg] = useState('Hello, world!');
+  const [num, setNum] = useState(50);
 
   return (
     <FormWrapper>
@@ -61,6 +63,16 @@ const Home = () => {
           <div>
             <TextBox value={msg} setValue={setMsg} />
             {msg}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Number'
+        form={
+          <div>
+            <Number value={num} setValue={setNum} />
+            {num}
           </div>
         }
       />
