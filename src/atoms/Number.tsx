@@ -18,7 +18,7 @@ const Number = ({ setValue, ...rest }: any) => (
 
 Number.defaultProps = {
   value: 0,
-}
+};
 
 Number.propTypes = {
   value: PropTypes.oneOfType([

@@ -5,6 +5,7 @@ import FieldSet from '../atoms/FieldSet';
 import Button from '../atoms/Button';
 import TextBox from '../atoms/TextBox';
 import Number from '../atoms/Number';
+import Search from '../atoms/Search';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -16,6 +17,7 @@ const Home = () => {
   const [sw, setSw] = useState('Off');
   const [msg, setMsg] = useState('Hello, world!');
   const [num, setNum] = useState(50);
+  const [searchText, setSearchText] = useState('');
 
   return (
     <FormWrapper>
@@ -73,6 +75,16 @@ const Home = () => {
           <div>
             <Number value={num} setValue={setNum} />
             {num}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Search'
+        form={
+          <div>
+            <Search value={searchText} setValue={setSearchText} />
+            {searchText}
           </div>
         }
       />
