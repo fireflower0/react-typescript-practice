@@ -6,6 +6,7 @@ import Button from '../atoms/Button';
 import TextBox from '../atoms/TextBox';
 import Number from '../atoms/Number';
 import Search from '../atoms/Search';
+import TextArea from '../atoms/TextArea';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -18,6 +19,7 @@ const Home = () => {
   const [msg, setMsg] = useState('Hello, world!');
   const [num, setNum] = useState(50);
   const [searchText, setSearchText] = useState('');
+  const [msg2, setMsg2] = useState('Hello, world!');
 
   return (
     <FormWrapper>
@@ -85,6 +87,16 @@ const Home = () => {
           <div>
             <Search value={searchText} setValue={setSearchText} />
             {searchText}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='TextArea'
+        form={
+          <div>
+            <TextArea value={msg2} setValue={setMsg2} />
+            {msg2}
           </div>
         }
       />
