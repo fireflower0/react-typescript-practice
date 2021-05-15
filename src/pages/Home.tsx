@@ -7,6 +7,7 @@ import TextBox from '../atoms/TextBox';
 import Number from '../atoms/Number';
 import Search from '../atoms/Search';
 import TextArea from '../atoms/TextArea';
+import Radio from '../atoms/Radio';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -20,6 +21,13 @@ const Home = () => {
   const [num, setNum] = useState(50);
   const [searchText, setSearchText] = useState('');
   const [msg2, setMsg2] = useState('Hello, world!');
+  const [selectedValue, setSelectedValue] = useState('apple');
+
+  const fruits = [
+    { id: 'apple', labelText: 'りんご', value: 'apple' },
+    { id: 'orange', labelText: 'オレンジ', value: 'orange' },
+    { id: 'grape', labelText: 'ぶどう', value: 'grape' },
+  ];
 
   return (
     <FormWrapper>
@@ -100,6 +108,26 @@ const Home = () => {
           </div>
         }
       />
+
+      <FieldSet
+        labelText='Radio'
+        form={
+          <div>
+            {fruits.map(v => (
+              <Radio
+                key={v.id}
+                id={v.id}
+                labelText={v.labelText}
+                value={v.value}
+                checked={selectedValue === v.value}
+                setValue={setSelectedValue}
+              />
+            ))}
+            {selectedValue}
+          </div>
+        }
+      />
+
     </FormWrapper>
   );
 };
