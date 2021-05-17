@@ -8,6 +8,7 @@ import Number from '../atoms/Number';
 import Search from '../atoms/Search';
 import TextArea from '../atoms/TextArea';
 import Radio from '../atoms/Radio';
+import CheckBox from '../atoms/CheckBox';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -22,11 +23,17 @@ const Home = () => {
   const [searchText, setSearchText] = useState('');
   const [msg2, setMsg2] = useState('Hello, world!');
   const [selectedValue, setSelectedValue] = useState('apple');
+  const [selectedValues, setSelectedValues] = useState<any>([]);
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
     { id: 'orange', labelText: 'オレンジ', value: 'orange' },
     { id: 'grape', labelText: 'ぶどう', value: 'grape' },
+  ];
+  const colors = [
+    { id: 'red', labelText: '赤', value: 'red' },
+    { id: 'green', labelText: '青', value: 'green' },
+    { id: 'blue', labelText: '緑', value: 'blue' },
   ];
 
   return (
@@ -128,6 +135,25 @@ const Home = () => {
         }
       />
 
+      <FieldSet
+        labelText='CheckBox'
+        form={
+          <div>
+            {colors.map(v => (
+              <CheckBox
+                key={v.id}
+                id={v.id}
+                labelText={v.labelText}
+                value={v.value}
+                values={selectedValues}
+                checked={selectedValues.includes(v.value)}
+                setValue={setSelectedValues}
+              />
+            ))}
+            {selectedValues.length === 0 ? '' : selectedValues.join(', ')}
+          </div>
+        }
+      />
     </FormWrapper>
   );
 };
