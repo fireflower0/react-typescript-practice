@@ -9,6 +9,7 @@ import Search from '../atoms/Search';
 import TextArea from '../atoms/TextArea';
 import Radio from '../atoms/Radio';
 import CheckBox from '../atoms/CheckBox';
+import Select from '../atoms/Select';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -24,6 +25,7 @@ const Home = () => {
   const [msg2, setMsg2] = useState('Hello, world!');
   const [selectedValue, setSelectedValue] = useState('apple');
   const [selectedValues, setSelectedValues] = useState<any>([]);
+  const [selectedBloodType, setSelectedBloodType] = useState('O');
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
@@ -34,6 +36,12 @@ const Home = () => {
     { id: 'red', labelText: '赤', value: 'red' },
     { id: 'green', labelText: '青', value: 'green' },
     { id: 'blue', labelText: '緑', value: 'blue' },
+  ];
+  const bloodTypes = [
+    { id: 'typeA', value: 'A' },
+    { id: 'typeB', value: 'B' },
+    { id: 'typeO', value: 'O' },
+    { id: 'typeAB', value: 'AB' },
   ];
 
   return (
@@ -151,6 +159,20 @@ const Home = () => {
               />
             ))}
             {selectedValues.length === 0 ? '' : selectedValues.join(', ')}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Select'
+        form={
+          <div>
+            <Select
+              options={bloodTypes}
+              value={selectedBloodType}
+              setValue={setSelectedBloodType}
+            />
+            血液型：{selectedBloodType}
           </div>
         }
       />
