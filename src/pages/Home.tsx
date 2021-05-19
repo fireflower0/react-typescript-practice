@@ -10,6 +10,7 @@ import TextArea from '../atoms/TextArea';
 import Radio from '../atoms/Radio';
 import CheckBox from '../atoms/CheckBox';
 import Select from '../atoms/Select';
+import Date from '../atoms/Date';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -26,6 +27,7 @@ const Home = () => {
   const [selectedValue, setSelectedValue] = useState('apple');
   const [selectedValues, setSelectedValues] = useState<any>([]);
   const [selectedBloodType, setSelectedBloodType] = useState('O');
+  const [date, setDate] = useState('2021-04-04');
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
@@ -173,6 +175,16 @@ const Home = () => {
               setValue={setSelectedBloodType}
             />
             血液型：{selectedBloodType}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Date'
+        form={
+          <div>
+            <Date defaultValue={date} setDate={setDate} />
+            日付：{date}
           </div>
         }
       />
