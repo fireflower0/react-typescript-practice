@@ -12,6 +12,7 @@ import CheckBox from '../atoms/CheckBox';
 import Select from '../atoms/Select';
 import Date from '../atoms/Date';
 import Time from '../atoms/Time';
+import Color from '../atoms/Color';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -30,6 +31,7 @@ const Home = () => {
   const [selectedBloodType, setSelectedBloodType] = useState('O');
   const [date, setDate] = useState('2021-04-04');
   const [time, setTime] = useState('12:00');
+  const [color, setColor] = useState('#e66465');
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
@@ -197,6 +199,16 @@ const Home = () => {
           <div>
             <Time defaultValue={time} setDate={setTime} />
             時刻：{time}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Color'
+        form={
+          <div>
+            <Color defaultValue={color} setColor={setColor} />
+            カラーコード：{color}
           </div>
         }
       />
