@@ -29,7 +29,7 @@ const Home = () => {
   const [msg2, setMsg2] = useState('Hello, world!');
   const [selectedValue, setSelectedValue] = useState('apple');
   const [selectedValues, setSelectedValues] = useState<any>([]);
-  const [selectedBloodType, setSelectedBloodType] = useState('O');
+  const [selectedBloodType, setSelectedBloodType] = useState('');
   const [date, setDate] = useState('2021-04-04');
   const [time, setTime] = useState('12:00');
   const [color, setColor] = useState('#e66465');
@@ -179,6 +179,15 @@ const Home = () => {
               options={bloodTypes}
               value={selectedBloodType}
               setValue={setSelectedBloodType}
+            />
+            <Button
+              labelText='Clear'
+              styles={{
+                width: '100px',
+                color: 'white',
+                backgroundColor: 'grey'
+              }}
+              onClick={() => setSelectedBloodType('')}
             />
             血液型：{selectedBloodType}
           </div>
