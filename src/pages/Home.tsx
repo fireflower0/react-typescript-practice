@@ -14,6 +14,7 @@ import Date from '../atoms/Date';
 import Time from '../atoms/Time';
 import Color from '../atoms/Color';
 import Range from '../atoms/Range';
+import Progress from '../atoms/Progress';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -34,6 +35,7 @@ const Home = () => {
   const [time, setTime] = useState('12:00');
   const [color, setColor] = useState('#e66465');
   const [range, setRange] = useState(75);
+  const [numValue, setNumValue] = useState(0);
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
@@ -230,6 +232,21 @@ const Home = () => {
           <div>
             <Range defaultValue={range} setRange={setRange} />
             位置：{range}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Progress'
+        form={
+          <div>
+            <Number
+              value={numValue}
+              setValue={setNumValue}
+              min={0} max={100}
+            />
+            <Progress max='100' value={numValue} />
+            {numValue} %
           </div>
         }
       />

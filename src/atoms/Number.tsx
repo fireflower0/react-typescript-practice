@@ -18,6 +18,8 @@ const Number = ({ setValue, ...rest }: any) => (
 
 Number.defaultProps = {
   value: 0,
+  min: 0,
+  max: 100,
 };
 
 Number.propTypes = {
@@ -25,6 +27,8 @@ Number.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
+  min: PropTypes.number,
+  max: PropTypes.number,
   setValue: PropTypes.func.isRequired,
 };
 
