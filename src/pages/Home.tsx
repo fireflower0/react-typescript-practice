@@ -15,6 +15,7 @@ import Time from '../atoms/Time';
 import Color from '../atoms/Color';
 import Range from '../atoms/Range';
 import Progress from '../atoms/Progress';
+import List from '../atoms/List';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -53,6 +54,7 @@ const Home = () => {
     { id: 'typeO', value: 'O' },
     { id: 'typeAB', value: 'AB' },
   ];
+  const listValues = ['foo', 'bar', 'baz'];
 
   return (
     <FormWrapper>
@@ -247,6 +249,16 @@ const Home = () => {
             />
             <Progress max='100' value={numValue} />
             {numValue} %
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='List'
+        form={
+          <div>
+            <List values={listValues} />
+            <List values={listValues} isOrdered />
           </div>
         }
       />
