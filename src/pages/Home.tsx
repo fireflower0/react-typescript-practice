@@ -16,6 +16,7 @@ import Color from '../atoms/Color';
 import Range from '../atoms/Range';
 import Progress from '../atoms/Progress';
 import List from '../atoms/List';
+import Table from '../atoms/Table';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -55,6 +56,21 @@ const Home = () => {
     { id: 'typeAB', value: 'AB' },
   ];
   const listValues = ['foo', 'bar', 'baz'];
+  const tableHeaders = ['No', 'Name', 'Description'];
+  const tableBodys = [
+    { no: 0, name: 'foo', description: '---' },
+    { no: 1, name: 'bar', description: '---' },
+    { no: 2, name: 'baz', description: '---' },
+    { no: 3, name: 'qux', description: '---' },
+    { no: 4, name: 'quux', description: '---' },
+    { no: 5, name: 'corge', description: '---' },
+    { no: 6, name: 'grault', description: '---' },
+    { no: 7, name: 'garply', description: '---' },
+    { no: 8, name: 'waldo', description: '---' },
+    { no: 9, name: 'fred', description: '---' },
+    { no: 10, name: 'plugh', description: '---' },
+    { no: 11, name: 'xyzzy', description: '---' }
+  ];
 
   return (
     <FormWrapper>
@@ -259,6 +275,18 @@ const Home = () => {
           <div>
             <List values={listValues} />
             <List values={listValues} isOrdered />
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText='Table'
+        form={
+          <div>
+            <Table
+              headers={tableHeaders}
+              bodys={tableBodys}
+            />
           </div>
         }
       />
