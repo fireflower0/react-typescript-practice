@@ -50,10 +50,10 @@ const Home = () => {
     { id: 'blue', labelText: '緑', value: 'blue' },
   ];
   const bloodTypes = [
-    { id: 'typeA', value: 'A' },
-    { id: 'typeB', value: 'B' },
-    { id: 'typeO', value: 'O' },
-    { id: 'typeAB', value: 'AB' },
+    { label: 'A', value: 'A' },
+    { label: 'B', value: 'B' },
+    { label: 'O', value: 'O' },
+    { label: 'AB', value: 'AB' },
   ];
   const listValues = ['foo', 'bar', 'baz'];
   const tableHeaders = ['No', 'Name', 'Description'];
@@ -199,15 +199,6 @@ const Home = () => {
               options={bloodTypes}
               value={selectedBloodType}
               setValue={setSelectedBloodType}
-            />
-            <Button
-              labelText='Clear'
-              styles={{
-                width: '100px',
-                color: 'white',
-                backgroundColor: 'grey'
-              }}
-              onClick={() => setSelectedBloodType('')}
             />
             血液型：{selectedBloodType}
           </div>
