@@ -196,6 +196,25 @@ const Home = () => {
         form={
           <div>
             <Select
+              styles={{
+                menu: (provided: any, state: any) => ({
+                  ...provided,
+                  width: state.selectProps.width,
+                  borderBottom: '1px dotted pink',
+                  color: state.selectProps.menuColor,
+                  padding: 20,
+                }),
+                control: (_: any, { selectProps: { width }}: any) => ({
+                  width: width,
+                }),
+                singleValue: (provided: any, state: any) => {
+                  const opacity = state.isDisabled ? 0.5 : 1;
+                  const transition = 'opacity 300ms';
+                  return { ...provided, opacity, transition };
+                }
+              }}
+              width='200px'
+              menuColor='red'
               options={bloodTypes}
               value={selectedBloodType}
               setValue={setSelectedBloodType}
