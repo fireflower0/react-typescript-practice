@@ -1,28 +1,20 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const RangeWrapper = styled.input`
   margin: 5px;
 `;
 
-const Range = ({ setRange, ...rest }: any) => (
+interface Props {
+  defaultValue: number;
+  setRange: (value: number) => void;
+}
+
+const Range: React.FC<Props> = props => (
   <RangeWrapper
     type='range'
-    onChange={v => setRange(v.target.value)}
-    {...rest}
+    defaultValue={props.defaultValue}
+    onChange={v => props.setRange(parseInt(v.target.value))}
   />
 );
-
-Range.defaultProps = {
-  defaultValue: 0,
-};
-
-Range.propTypes = {
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  setRange: PropTypes.func.isRequired,
-};
 
 export default Range;

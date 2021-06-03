@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const ButtonWrapper = styled.button`
   margin: 5px;
@@ -9,22 +8,21 @@ const ButtonWrapper = styled.button`
   border-radius: 3px;
 `;
 
-const Button = ({ labelText, styles, ...rest }: any) => (
-  <ButtonWrapper style={styles} {...rest} >
-    {labelText}
+interface Props {
+  labelText: string;
+  styles?: {
+    width?: string;
+    height?: string;
+    color?: string;
+    backgroundColor?: string;
+  };
+  onClick?: () => void;
+}
+
+const Button: React.FC<Props> = props => (
+  <ButtonWrapper style={props.styles} onClick={props.onClick}>
+    {props.labelText}
   </ButtonWrapper>
 );
-
-Button.defaultProps = {
-  labelText: '',
-  styles: {},
-  onClick: null,
-};
-
-Button.propTypes = {
-  labelText: PropTypes.string,
-  styles: PropTypes.object,
-  onClick: PropTypes.func,
-};
 
 export default Button;

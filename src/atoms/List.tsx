@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Base = css`
@@ -20,26 +19,21 @@ const LIWrapper = styled.li`
   padding: 0.5em 0;
 `;
 
-const List = ({ values, isOrdered }: any) => {
+interface Props {
+  values: string[];
+  isOrdered?: boolean;
+}
+
+const List: React.FC<Props> = props => {
   const valueToLists = (value: string) => (
     <LIWrapper key={value}>{value}</LIWrapper>
   );
 
   return (
-    isOrdered
-      ? <OLWrapper>{values.map(valueToLists)}</OLWrapper>
-      : <ULWrapper>{values.map(valueToLists)}</ULWrapper>
+    props.isOrdered
+      ? <OLWrapper>{props.values.map(valueToLists)}</OLWrapper>
+      : <ULWrapper>{props.values.map(valueToLists)}</ULWrapper>
   );
-};
-
-List.defaultProps = {
-  values: [],
-  isOrdered: false,
-};
-
-List.propTypes = {
-  values: PropTypes.array,
-  isOrdered: PropTypes.bool,
 };
 
 export default List;

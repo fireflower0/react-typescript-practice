@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TextBoxWrapper = styled.input`
@@ -8,20 +7,16 @@ const TextBoxWrapper = styled.input`
   border: 1px solid #212121;
 `;
 
-const TextBox = ({ setValue, ...rest }: any) => (
-  <TextBoxWrapper
-    onChange={e => setValue(e.target.value)}
-    {...rest}
-  />
-);
-
-TextBox.defaultProps = {
-  value: '',
+interface Props {
+  value: string;
+  setValue: (value: string) => void;
 }
 
-TextBox.propTypes = {
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
-};
+const TextBox: React.FC<Props> = props => (
+  <TextBoxWrapper
+    value={props.value}
+    onChange={e => props.setValue(e.target.value)}
+  />
+);
 
 export default TextBox;

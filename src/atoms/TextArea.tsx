@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TextAreaWrapper = styled.textarea`
@@ -8,20 +7,16 @@ const TextAreaWrapper = styled.textarea`
   border: 1px solid #212121;
 `;
 
-const TextArea = ({ setValue, ...rest }: any) => (
+interface Props {
+  value: string;
+  setValue: (value: string) => void;
+}
+
+const TextArea: React.FC<Props> = props => (
   <TextAreaWrapper
-    onChange={e => setValue(e.target.value)}
-    {...rest}
+    value={props.value}
+    onChange={e => props.setValue(e.target.value)}
   />
 );
-
-TextArea.defaultProps = {
-    value: '',
-  };
-
-TextArea.propTypes = {
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default TextArea;

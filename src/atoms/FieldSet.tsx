@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FieldSetWrapper = styled.fieldset`
@@ -17,24 +16,16 @@ const LegendWrapper = styled.legend`
   font-weight: bold;
 `;
 
-const FieldSet = ({ labelText, form }: any) => (
+interface Props {
+  labelText: string;
+  form: object;
+}
+
+const FieldSet: React.FC<Props> = props => (
   <FieldSetWrapper>
-    <LegendWrapper>{labelText}</LegendWrapper>
-    {form}
+    <LegendWrapper>{props.labelText}</LegendWrapper>
+    {props.form}
   </FieldSetWrapper>
 );
-
-FieldSet.defaultProps = {
-  labelText: '',
-  form: null,
-};
-
-FieldSet.propTypes = {
-  labelText: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
-  form: PropTypes.object,
-};
 
 export default FieldSet;

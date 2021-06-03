@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
@@ -21,40 +20,32 @@ const CheckBoxWrapper = styled.input`
   }
 `;
 
-const CheckBox = ({
-  id,labelText, checked, values, setValue, ...rest
-}: any) => (
+interface Props {
+  id: string;
+  labelText: string;
+  checked: boolean;
+  value: string;
+  values: string[];
+  setValue: (value: string[]) => void;
+}
+
+const CheckBox: React.FC<Props> = props => (
   <FormWrapper>
     <CheckBoxWrapper
-      id={id}
+      id={props.id}
       type="checkbox"
-      checked={checked}
+      value={props.value}
+      checked={props.checked}
       onChange={(e) => {
         if (e.target.checked) {
-          setValue(values.concat(e.target.value));
+          props.setValue(props.values.concat(e.target.value));
         } else {
-          setValue(values.filter((v: any) => v !== e.target.value));
+          props.setValue(props.values.filter((v: any) => v !== e.target.value));
         }
       }}
-      {...rest}
     />
-    <LabelText htmlFor={id}>{labelText}</LabelText>
+    <LabelText htmlFor={props.id}>{props.labelText}</LabelText>
   </FormWrapper>
 );
-
-CheckBox.defaultProps = {
-  labelText: '',
-  value: '',
-  values: [],
-};
-
-CheckBox.propTypes = {
-  id: PropTypes.string.isRequired,
-  labelText: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
-  value: PropTypes.string,
-  values: PropTypes.array,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default CheckBox;

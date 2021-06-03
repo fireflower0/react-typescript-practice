@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const NumberWrapper = styled.input`
@@ -8,28 +7,20 @@ const NumberWrapper = styled.input`
   border: 1px solid #212121;
 `;
 
-const Number = ({ setValue, ...rest }: any) => (
+interface Props {
+  value: number;
+  min?: number;
+  max?: number;
+  setValue: (value: number) => void;
+}
+
+const Number: React.FC<Props> = props => (
   <NumberWrapper
     type='number'
-    onChange={e => setValue(e.target.value)}
-    {...rest}
+    min={props.min}
+    max={props.max}
+    onChange={e => props.setValue(parseInt(e.target.value))}
   />
 );
-
-Number.defaultProps = {
-  value: 0,
-  min: 0,
-  max: 100,
-};
-
-Number.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  min: PropTypes.number,
-  max: PropTypes.number,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default Number;

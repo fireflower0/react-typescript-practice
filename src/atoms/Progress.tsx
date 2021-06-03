@@ -12,10 +12,4 @@ const Progress = ({ ...rest }) => (
   <ProgressWrapper {...rest} />
 );
 
-Progress.defaultProps = {
-};
-
-Progress.propTypes = {
-};
-
 export default Progress;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TimeWrapper = styled.input`
@@ -11,21 +10,17 @@ const TimeWrapper = styled.input`
   font-size: 14px;
 `;
 
-const Time = ({ defaultValue, setDate, ...rest }: any) => (
+interface Props {
+  defaultValue: string;
+  setDate: (value: string) => void;
+}
+
+const Time: React.FC<Props> = props => (
   <TimeWrapper
     type='time'
-    defaultValue={defaultValue}
-    onChange={v => setDate(v.target.value)}
+    defaultValue={props.defaultValue}
+    onChange={v => props.setDate(v.target.value)}
   />
 );
-
-Time.defaultProps = {
-  defaultValue: '',
-};
-
-Time.propTypes = {
-  defaultValue: PropTypes.string,
-  setDate: PropTypes.func.isRequired,
-};
 
 export default Time;

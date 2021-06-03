@@ -1,28 +1,22 @@
 import ReactSelect from 'react-select'
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const CustomSelect = styled(ReactSelect)`
-  width: 100px;
+  width: 200px;
 `;
 
-const Select = ({ options, value, setValue, ...rest }: any) => (
+interface Props {
+  options: object[];
+  value: string;
+  setValue: (value: string) => void;
+}
+
+const Select: React.FC<Props> = props => (
   <CustomSelect
-    options={options}
-    defaultValue={value}
-    onChange={(v: any) => setValue(v.value)}
+    options={props.options}
+    defaultValue={props.value}
+    onChange={(v: any) => props.setValue(v.value)}
   />
 );
-
-Select.defaultProps = {
-  options: [],
-  value: '',
-};
-
-Select.propTypes = {
-  options: PropTypes.array,
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default Select;

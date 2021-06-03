@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TableWrapper = styled.table`
@@ -25,7 +24,12 @@ const TDWrapper = styled.td`
   }
 `;
 
-const Table = ({ headers, bodys }: any) => {
+interface Props {
+  headers: string[];
+  bodys: object[];
+}
+
+const Table: React.FC<Props> = props => {
   const bodyToRows = (body: any) => {
     const cells: any = Object.values(body);
     return (
@@ -41,24 +45,14 @@ const Table = ({ headers, bodys }: any) => {
     <TableWrapper>
       <thead>
         <tr>
-          {headers.map((h: string) => <THWrapper key={h}>{h}</THWrapper>)}
+          {props.headers.map((h: string) => <THWrapper key={h}>{h}</THWrapper>)}
         </tr>
       </thead>
       <tbody>
-        {bodys.map(bodyToRows)}
+        {props.bodys.map(bodyToRows)}
       </tbody>
     </TableWrapper>
   );
-};
-
-Table.defaultProps = {
-  headers: [],
-  bodys: [],
-};
-
-Table.propTypes = {
-  headers: PropTypes.array,
-  bodys: PropTypes.array,
 };
 
 export default Table;

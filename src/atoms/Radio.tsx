@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
@@ -21,32 +20,25 @@ const RadioWrapper = styled.input`
   }
 `;
 
-const Radio = ({
-  id, labelText, checked, setValue, ...rest
-}: any) => (
+interface Props {
+  id: string;
+  labelText: string;
+  checked: boolean;
+  value: string;
+  setValue: (value: string) => void;
+}
+
+const Radio: React.FC<Props> = props => (
   <FormWrapper>
     <RadioWrapper
-      id={id}
+      id={props.id}
       type='radio'
-      checked={checked}
-      onChange={e => setValue(e.target.value)}
-      {...rest}
+      value={props.value}
+      checked={props.checked}
+      onChange={e => props.setValue(e.target.value)}
     />
-    <LabelText htmlFor={id}>{labelText}</LabelText>
+    <LabelText htmlFor={props.id}>{props.labelText}</LabelText>
   </FormWrapper>
 );
-
-Radio.defaultProps = {
-  labelText: '',
-  value: '',
-};
-
-Radio.propTypes = {
-  id: PropTypes.string.isRequired,
-  labelText: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default Radio;

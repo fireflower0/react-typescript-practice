@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const SearchWrapper = styled.input`
@@ -8,21 +7,17 @@ const SearchWrapper = styled.input`
   border: 1px solid #212121;
 `;
 
-const Search = ({ setValue, ...rest }: any) => (
+interface Props {
+  value: string;
+  setValue: (value: string) => void;
+}
+
+const Search: React.FC<Props> = props => (
   <SearchWrapper
     type='search'
-    onChange={e => setValue(e.target.value)}
-    {...rest}
+    value={props.value}
+    onChange={e => props.setValue(e.target.value)}
   />
 );
-
-Search.defaultProps = {
-  value: '',
-};
-
-Search.propTypes = {
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
-};
 
 export default Search;
