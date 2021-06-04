@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const NumberWrapper = styled.input`
@@ -16,7 +17,7 @@ interface Props {
 
 const Number: React.FC<Props> = props => (
   <NumberWrapper
-    type='number'
+    type="number"
     min={props.min}
     max={props.max}
     onChange={e => props.setValue(parseInt(e.target.value))}

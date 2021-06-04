@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const TimeWrapper = styled.input`
@@ -6,7 +7,7 @@ const TimeWrapper = styled.input`
   height: 30px;
   border: 1px solid #263238;
   border-radius: 5px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
   font-size: 14px;
 `;
 
@@ -17,7 +18,7 @@ interface Props {
 
 const Time: React.FC<Props> = props => (
   <TimeWrapper
-    type='time'
+    type="time"
     defaultValue={props.defaultValue}
     onChange={v => props.setDate(v.target.value)}
   />

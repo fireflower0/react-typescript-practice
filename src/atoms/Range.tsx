@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const RangeWrapper = styled.input`
@@ -11,7 +12,7 @@ interface Props {
 
 const Range: React.FC<Props> = props => (
   <RangeWrapper
-    type='range'
+    type="range"
     defaultValue={props.defaultValue}
     onChange={v => props.setRange(parseInt(v.target.value))}
   />

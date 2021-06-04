@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -24,12 +25,14 @@ const App = () => {
     <FormWrapper>
       <Router>
         <Navbar />
-        <Route exact path='/' component={Home} />
-        <Route path='/animation' component={Animation} />
-        <Route path='/about' component={About} />
+        <Route exact path="/" component={Home} />
+        <Route path="/animation" component={Animation} />
+        <Route path="/about" component={About} />
       </Router>
     </FormWrapper>
   );
 };
 
-render(<App />, document.getElementById('root'));
+const container = document.getElementById('contents');
+
+render(<App />, container);

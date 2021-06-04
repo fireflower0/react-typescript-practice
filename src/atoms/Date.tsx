@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const DateWrapper = styled.input`
@@ -6,7 +7,7 @@ const DateWrapper = styled.input`
   height: 30px;
   border: 1px solid #263238;
   border-radius: 5px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
   font-size: 14px;
 `;
 
@@ -17,7 +18,7 @@ interface Props {
 
 const Date: React.FC<Props> = props => (
   <DateWrapper
-    type='date'
+    type="date"
     defaultValue={props.defaultValue}
     onChange={v => props.setDate(v.target.value)}
   />

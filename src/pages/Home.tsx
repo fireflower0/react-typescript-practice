@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { HeadLine } from '../atoms/HeadLine';
@@ -21,17 +22,17 @@ import Table from '../atoms/Table';
 const FormWrapper = styled.div`
   margin: 10px;
   padding: 10px;
-  background-color: #E3F2FD;
+  background-color: #e3f2fd;
 `;
 
-const Home = () => {
+const Home: React.FC = () => {
   const [sw, setSw] = useState('Off');
   const [msg, setMsg] = useState('Hello, world!');
   const [num, setNum] = useState(50);
   const [searchText, setSearchText] = useState('');
   const [msg2, setMsg2] = useState('Hello, world!');
   const [selectedValue, setSelectedValue] = useState('apple');
-  const [selectedValues, setSelectedValues] = useState<any>([]);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const [selectedBloodType, setSelectedBloodType] = useState('');
   const [date, setDate] = useState('2021-04-04');
   const [time, setTime] = useState('12:00');
@@ -69,7 +70,7 @@ const Home = () => {
     { no: 8, name: 'waldo', description: '---' },
     { no: 9, name: 'fred', description: '---' },
     { no: 10, name: 'plugh', description: '---' },
-    { no: 11, name: 'xyzzy', description: '---' }
+    { no: 11, name: 'xyzzy', description: '---' },
   ];
 
   return (
@@ -81,39 +82,37 @@ const Home = () => {
       <HeadLine.H5>HeadLine.H5</HeadLine.H5>
       <HeadLine.H6>HeadLine.H6</HeadLine.H6>
       <FieldSet
-        labelText='Button'
+        labelText="Button"
         form={
           <div>
-            {sw === 'On'
-             ? (
-               <Button
-                 labelText='ON'
-                 styles={{
-                   width: '100px',
-                   color: 'white',
-                   backgroundColor: 'green'
-                 }}
-                 onClick={() => setSw('Off')}
-               />
-             )
-             : (
-               <Button
-                 labelText='OFF'
-                 styles={{
-                   width: '100px',
-                   color: 'white',
-                   backgroundColor: 'red'
-                 }}
-                 onClick={() => setSw('On')}
-               />
-             )}
+            {sw === 'On' ? (
+              <Button
+                labelText="ON"
+                styles={{
+                  width: '100px',
+                  color: 'white',
+                  backgroundColor: 'green',
+                }}
+                onClick={() => setSw('Off')}
+              />
+            ) : (
+              <Button
+                labelText="OFF"
+                styles={{
+                  width: '100px',
+                  color: 'white',
+                  backgroundColor: 'red',
+                }}
+                onClick={() => setSw('On')}
+              />
+            )}
             {sw}
           </div>
         }
       />
 
       <FieldSet
-        labelText='TextBox'
+        labelText="TextBox"
         form={
           <div>
             <TextBox value={msg} setValue={setMsg} />
@@ -123,7 +122,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Number'
+        labelText="Number"
         form={
           <div>
             <Number value={num} setValue={setNum} />
@@ -133,7 +132,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Search'
+        labelText="Search"
         form={
           <div>
             <Search value={searchText} setValue={setSearchText} />
@@ -143,7 +142,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='TextArea'
+        labelText="TextArea"
         form={
           <div>
             <TextArea value={msg2} setValue={setMsg2} />
@@ -153,7 +152,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Radio'
+        labelText="Radio"
         form={
           <div>
             {fruits.map(v => (
@@ -172,7 +171,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='CheckBox'
+        labelText="CheckBox"
         form={
           <div>
             {colors.map(v => (
@@ -192,7 +191,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Select'
+        labelText="Select"
         form={
           <div>
             <Select
@@ -206,7 +205,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Date'
+        labelText="Date"
         form={
           <div>
             <Date defaultValue={date} setDate={setDate} />
@@ -216,7 +215,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Time'
+        labelText="Time"
         form={
           <div>
             <Time defaultValue={time} setDate={setTime} />
@@ -226,7 +225,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Color'
+        labelText="Color"
         form={
           <div>
             <Color defaultValue={color} setColor={setColor} />
@@ -236,7 +235,7 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Range'
+        labelText="Range"
         form={
           <div>
             <Range defaultValue={range} setRange={setRange} />
@@ -246,22 +245,18 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Progress'
+        labelText="Progress"
         form={
           <div>
-            <Number
-              value={numValue}
-              setValue={setNumValue}
-              min={0} max={100}
-            />
-            <Progress max='100' value={numValue} />
+            <Number value={numValue} setValue={setNumValue} min={0} max={100} />
+            <Progress max="100" value={numValue} />
             {numValue} %
           </div>
         }
       />
 
       <FieldSet
-        labelText='List'
+        labelText="List"
         form={
           <div>
             <List values={listValues} />
@@ -271,13 +266,10 @@ const Home = () => {
       />
 
       <FieldSet
-        labelText='Table'
+        labelText="Table"
         form={
           <div>
-            <Table
-              headers={tableHeaders}
-              bodys={tableBodys}
-            />
+            <Table headers={tableHeaders} bodys={tableBodys} />
           </div>
         }
       />

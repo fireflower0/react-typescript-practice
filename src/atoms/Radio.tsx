@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
@@ -11,12 +12,12 @@ const LabelText = styled.label`
   cursor: pointer;
   border: 1px solid #263238;
   border-radius: 5px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
 `;
 const RadioWrapper = styled.input`
   display: none;
   &:checked + ${LabelText} {
-    background-color: #00E676;
+    background-color: #00e676;
   }
 `;
 
@@ -32,7 +33,7 @@ const Radio: React.FC<Props> = props => (
   <FormWrapper>
     <RadioWrapper
       id={props.id}
-      type='radio'
+      type="radio"
       value={props.value}
       checked={props.checked}
       onChange={e => props.setValue(e.target.value)}

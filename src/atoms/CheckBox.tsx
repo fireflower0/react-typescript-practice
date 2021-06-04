@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
@@ -11,12 +12,12 @@ const LabelText = styled.label`
   cursor: pointer;
   border: 1px solid #263238;
   border-radius: 5px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
 `;
 const CheckBoxWrapper = styled.input`
   display: none;
   &:checked + ${LabelText} {
-    background-color: #00E676;
+    background-color: #00e676;
   }
 `;
 
@@ -36,11 +37,13 @@ const CheckBox: React.FC<Props> = props => (
       type="checkbox"
       value={props.value}
       checked={props.checked}
-      onChange={(e) => {
+      onChange={e => {
         if (e.target.checked) {
           props.setValue(props.values.concat(e.target.value));
         } else {
-          props.setValue(props.values.filter((v: any) => v !== e.target.value));
+          props.setValue(
+            props.values.filter((v: unknown) => v !== e.target.value),
+          );
         }
       }}
     />

@@ -1,4 +1,5 @@
-import ReactSelect from 'react-select'
+import React from 'react';
+import ReactSelect from 'react-select';
 import styled from 'styled-components';
 
 const CustomSelect = styled(ReactSelect)`
@@ -6,7 +7,7 @@ const CustomSelect = styled(ReactSelect)`
 `;
 
 interface Props {
-  options: object[];
+  options: unknown[];
   value: string;
   setValue: (value: string) => void;
 }
@@ -15,7 +16,7 @@ const Select: React.FC<Props> = props => (
   <CustomSelect
     options={props.options}
     defaultValue={props.value}
-    onChange={(v: any) => props.setValue(v.value)}
+    onChange={(v: { value: string }) => props.setValue(v.value)}
   />
 );
 

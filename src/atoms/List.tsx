@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Base = css`
@@ -29,10 +30,10 @@ const List: React.FC<Props> = props => {
     <LIWrapper key={value}>{value}</LIWrapper>
   );
 
-  return (
-    props.isOrdered
-      ? <OLWrapper>{props.values.map(valueToLists)}</OLWrapper>
-      : <ULWrapper>{props.values.map(valueToLists)}</ULWrapper>
+  return props.isOrdered ? (
+    <OLWrapper>{props.values.map(valueToLists)}</OLWrapper>
+  ) : (
+    <ULWrapper>{props.values.map(valueToLists)}</ULWrapper>
   );
 };
 

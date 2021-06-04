@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const ColorWrapper = styled.input`
@@ -11,7 +12,7 @@ interface Props {
 
 const Color: React.FC<Props> = props => (
   <ColorWrapper
-    type='color'
+    type="color"
     defaultValue={props.defaultValue}
     onChange={v => props.setColor(v.target.value)}
   />

@@ -1,51 +1,46 @@
 {
   "name": "react-typescript-practice",
   "version": "0.1.0",
+  "main": "main.js",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^12.20.12",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.3",
+    "eslint-loader": "^4.0.2",
+    "html-webpack-plugin": "^5.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
     "react-select": "^4.3.1",
+    "redux": "^4.1.0",
     "styled-components": "^5.3.0",
-    "typescript": "^4.2.4",
-    "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript-fsa": "^3.0.0",
+    "typescript-fsa-reducers": "^1.2.2"
   },
   "devDependencies": {
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-select": "^4.0.15",
-    "@types/styled-components": "^5.1.9"
+    "@types/redux": "^3.6.0",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "electron": "^13.0.1",
+    "eslint": "^7.27.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.3.0",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "scripts": {
+    "start": "electron ./dist/main.js",
+    "build:main": "tsc",
+    "build:render": "webpack"
   }
 }

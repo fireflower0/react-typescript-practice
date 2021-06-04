@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const FieldSetWrapper = styled.fieldset`
@@ -18,7 +19,7 @@ const LegendWrapper = styled.legend`
 
 interface Props {
   labelText: string;
-  form: object;
+  form: unknown;
 }
 
 const FieldSet: React.FC<Props> = props => (

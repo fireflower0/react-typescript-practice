@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const SearchWrapper = styled.input`
@@ -14,7 +15,7 @@ interface Props {
 
 const Search: React.FC<Props> = props => (
   <SearchWrapper
-    type='search'
+    type="search"
     value={props.value}
     onChange={e => props.setValue(e.target.value)}
   />

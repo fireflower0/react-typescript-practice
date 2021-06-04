@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const TableWrapper = styled.table`
@@ -11,7 +12,7 @@ const TableWrapper = styled.table`
 const THWrapper = styled.th`
   border: 3px solid gray;
   padding: 5px;
-  background-color: #BDBDBD;
+  background-color: #bdbdbd;
   color: #212121;
 `;
 
@@ -26,12 +27,13 @@ const TDWrapper = styled.td`
 
 interface Props {
   headers: string[];
-  bodys: object[];
+  bodys: unknown[];
 }
 
 const Table: React.FC<Props> = props => {
-  const bodyToRows = (body: any) => {
-    const cells: any = Object.values(body);
+  const bodyToRows = (body: unknown) => {
+    const b = Object.assign({}, {}, body);
+    const cells: string[] = Object.values(b);
     return (
       <tr key={cells[0]}>
         {cells.map((v: string) => (
@@ -45,12 +47,12 @@ const Table: React.FC<Props> = props => {
     <TableWrapper>
       <thead>
         <tr>
-          {props.headers.map((h: string) => <THWrapper key={h}>{h}</THWrapper>)}
+          {props.headers.map((h: string) => (
+            <THWrapper key={h}>{h}</THWrapper>
+          ))}
         </tr>
       </thead>
-      <tbody>
-        {props.bodys.map(bodyToRows)}
-      </tbody>
+      <tbody>{props.bodys.map(bodyToRows)}</tbody>
     </TableWrapper>
   );
 };

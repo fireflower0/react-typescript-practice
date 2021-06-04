@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const ProgressWrapper = styled.progress`
@@ -8,8 +9,13 @@ const ProgressWrapper = styled.progress`
   }
 `;
 
-const Progress = ({ ...rest }) => (
-  <ProgressWrapper {...rest} />
+interface Props {
+  max: string;
+  value: number;
+}
+
+const Progress: React.FC<Props> = props => (
+  <ProgressWrapper max={props.max} value={props.value} />
 );
 
 export default Progress;
