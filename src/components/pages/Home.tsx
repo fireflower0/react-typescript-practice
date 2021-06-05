@@ -5,6 +5,7 @@ import { HeadLine } from '../atoms/HeadLine';
 import FieldSet from '../atoms/FieldSet';
 import Button from '../atoms/Button';
 import TextBox from '../atoms/TextBox';
+import LabeledTextBox from '../molecules/LabeledTextBox';
 import Number from '../atoms/Number';
 import Search from '../atoms/Search';
 import TextArea from '../atoms/TextArea';
@@ -28,6 +29,7 @@ const FormWrapper = styled.div`
 const Home: React.FC = () => {
   const [sw, setSw] = useState('Off');
   const [msg, setMsg] = useState('Hello, world!');
+  const [name, setName] = useState('');
   const [num, setNum] = useState(50);
   const [searchText, setSearchText] = useState('');
   const [msg2, setMsg2] = useState('Hello, world!');
@@ -117,6 +119,16 @@ const Home: React.FC = () => {
           <div>
             <TextBox value={msg} setValue={setMsg} />
             {msg}
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText="LabeledTextBox"
+        form={
+          <div>
+            <LabeledTextBox labelText="Name" value={name} setValue={setName} />
+            {name}
           </div>
         }
       />
