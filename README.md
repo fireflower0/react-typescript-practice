@@ -2,8 +2,10 @@
 
 A simple app using ReactJS, Typescript and Electron
 
+```
 node version: v16.1.0
 npm version: 7.11.2
+```
 
 Use yarn
 
@@ -26,3 +28,7 @@ Render process compilation
 ## `yarn start`
 
 Start Electron
+
+## `yarn debug`
+
+Start Electron and DevTools

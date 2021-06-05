@@ -40,6 +40,7 @@
   },
   "scripts": {
     "start": "electron ./dist/main.js",
+    "debug": "electron ./dist/main.js --debug",
     "build:main": "tsc",
     "build:render": "webpack"
   }

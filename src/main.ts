@@ -1,8 +1,9 @@
 import { app, BrowserWindow } from 'electron';
 
 const createWindow = (): void => {
+  const isDebug = process.argv.find(arg => arg === '--debug');
   const win = new BrowserWindow({
-    width: 1200,
+    width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: false,
@@ -11,8 +12,10 @@ const createWindow = (): void => {
     },
   });
   win.loadFile('./index.html');
-  // 開発者ツールを起動する
-  win.webContents.openDevTools();
+  if (isDebug) {
+    // 起動オプションに --debug があれば開発者ツールを起動する
+    win.webContents.openDevTools();
+  }
 };
 
 app.whenReady().then(createWindow);
