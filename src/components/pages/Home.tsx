@@ -17,6 +17,7 @@ import Time from '../atoms/Time';
 import Color from '../atoms/Color';
 import Range from '../atoms/Range';
 import Progress from '../atoms/Progress';
+import CodeBlock from '../atoms/CodeBlock';
 import List from '../atoms/List';
 import Table from '../atoms/Table';
 
@@ -263,6 +264,80 @@ const Home: React.FC = () => {
             <Number value={numValue} setValue={setNumValue} min={0} max={100} />
             <Progress max="100" value={numValue} />
             {numValue} %
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText="CodeBlock"
+        form={
+          <div>
+            <HeadLine.H4>Common Lisp</HeadLine.H4>
+            <CodeBlock
+              language="common-lisp"
+              value='(format t "Hello, world!~%")'
+            />
+            <HeadLine.H4>Clojure</HeadLine.H4>
+            <CodeBlock language="clojure" value='(println "Hello, world!")' />
+            <HeadLine.H4>Racket</HeadLine.H4>
+            <CodeBlock language="racket" value='(printf "Hello world!\n")' />
+            <HeadLine.H4>Haskell</HeadLine.H4>
+            <CodeBlock
+              language="haskell"
+              value='main = putStrLn "Hello world!"'
+            />
+            <HeadLine.H4>C</HeadLine.H4>
+            <CodeBlock
+              language="c"
+              value='#include <stdio.h>
+
+int main(int argc, char argv[]) {
+  printf("Hello, world!\n");
+  return 0;
+}'
+            />
+            <HeadLine.H4>C++</HeadLine.H4>
+            <CodeBlock
+              language="c++"
+              value='#include <iostream>
+using namespace std;
+
+int main(int argc, char argv[]) {
+  cout << "Hello, world!" << endl;
+  return 0;
+}'
+            />
+            <HeadLine.H4>Java</HeadLine.H4>
+            <CodeBlock
+              language="java"
+              value='public Hello {
+  public static void main(String[] args) {
+    System.out.println("Hello, world!");
+  }
+}'
+            />
+            <HeadLine.H4>C#</HeadLine.H4>
+            <CodeBlock
+              language="c#"
+              value='namespace Hello {
+  class Program {
+    static void Main(string[] args) {
+      System.Console.WriteLine("Hello, world!");
+    }
+  }
+}'
+            />
+            <HeadLine.H4>Rust</HeadLine.H4>
+            <CodeBlock
+              language="rust"
+              value='fn main() {
+  println!("Hello, world!");
+}'
+            />
+            <HeadLine.H4>Python2</HeadLine.H4>
+            <CodeBlock language="python2" value='print "Hello world!"' />
+            <HeadLine.H4>Python3</HeadLine.H4>
+            <CodeBlock language="python3" value='print("Hello world!")' />
           </div>
         }
       />
