@@ -275,21 +275,21 @@ const Home: React.FC = () => {
             <HeadLine.H4>Common Lisp</HeadLine.H4>
             <CodeBlock
               language="common-lisp"
-              value='(format t "Hello, world!~%")'
+              code='(format t "Hello, world!~%")'
             />
             <HeadLine.H4>Clojure</HeadLine.H4>
-            <CodeBlock language="clojure" value='(println "Hello, world!")' />
+            <CodeBlock language="clojure" code='(println "Hello, world!")' />
             <HeadLine.H4>Racket</HeadLine.H4>
-            <CodeBlock language="racket" value='(printf "Hello world!\n")' />
+            <CodeBlock language="racket" code='(printf "Hello world!\n")' />
             <HeadLine.H4>Haskell</HeadLine.H4>
             <CodeBlock
               language="haskell"
-              value='main = putStrLn "Hello world!"'
+              code='main = putStrLn "Hello world!"'
             />
             <HeadLine.H4>C</HeadLine.H4>
             <CodeBlock
               language="c"
-              value='#include <stdio.h>
+              code='#include <stdio.h>
 
 int main(int argc, char argv[]) {
   printf("Hello, world!\n");
@@ -299,7 +299,7 @@ int main(int argc, char argv[]) {
             <HeadLine.H4>C++</HeadLine.H4>
             <CodeBlock
               language="c++"
-              value='#include <iostream>
+              code='#include <iostream>
 using namespace std;
 
 int main(int argc, char argv[]) {
@@ -310,7 +310,7 @@ int main(int argc, char argv[]) {
             <HeadLine.H4>Java</HeadLine.H4>
             <CodeBlock
               language="java"
-              value='public Hello {
+              code='public Hello {
   public static void main(String[] args) {
     System.out.println("Hello, world!");
   }
@@ -319,7 +319,7 @@ int main(int argc, char argv[]) {
             <HeadLine.H4>C#</HeadLine.H4>
             <CodeBlock
               language="c#"
-              value='namespace Hello {
+              code='namespace Hello {
   class Program {
     static void Main(string[] args) {
       System.Console.WriteLine("Hello, world!");
@@ -330,14 +330,14 @@ int main(int argc, char argv[]) {
             <HeadLine.H4>Rust</HeadLine.H4>
             <CodeBlock
               language="rust"
-              value='fn main() {
+              code='fn main() {
   println!("Hello, world!");
 }'
             />
             <HeadLine.H4>Python2</HeadLine.H4>
-            <CodeBlock language="python2" value='print "Hello world!"' />
+            <CodeBlock language="python2" code='print "Hello world!"' />
             <HeadLine.H4>Python3</HeadLine.H4>
-            <CodeBlock language="python3" value='print("Hello world!")' />
+            <CodeBlock language="python3" code='print("Hello world!")' />
           </div>
         }
       />
