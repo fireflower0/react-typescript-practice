@@ -3,8 +3,8 @@ import { app, BrowserWindow } from 'electron';
 const createWindow = (): void => {
   const isDebug = process.argv.find(arg => arg === '--debug');
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: false,
       nodeIntegrationInWorker: false,

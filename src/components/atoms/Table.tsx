@@ -1,28 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const BaseStyle = css`
+  text-align: center;
+  width: 25%;
+  padding: 10px;
+`;
 
 const TableWrapper = styled.table`
-  margin: 5px;
-  border: 3px solid gray;
+  ${BaseStyle}
   border-collapse: collapse;
+  border-spacing: 0;
   width: 100%;
-  table-layout: fixed;
+  color: #263238;
+  background-color: #eceff1;
+`;
+
+const TRWrapper = styled.tr`
+  border-bottom: solid 2px #263238;
 `;
 
 const THWrapper = styled.th`
-  border: 3px solid gray;
-  padding: 5px;
-  background-color: #bdbdbd;
-  color: #212121;
+  ${BaseStyle}
 `;
 
 const TDWrapper = styled.td`
-  border: 3px solid gray;
-  padding: 10px;
-  background-color: whitesmoke;
-  &:hover {
-    background-color: #fffeb2;
-  }
+  ${BaseStyle}
 `;
 
 interface Props {
@@ -35,22 +38,22 @@ const Table: React.FC<Props> = props => {
     const b = Object.assign({}, {}, body);
     const cells: string[] = Object.values(b);
     return (
-      <tr key={cells[0]}>
+      <TRWrapper key={cells[0]}>
         {cells.map((v: string) => (
           <TDWrapper key={v}>{v}</TDWrapper>
         ))}
-      </tr>
+      </TRWrapper>
     );
   };
 
   return (
     <TableWrapper>
       <thead>
-        <tr>
+        <TRWrapper>
           {props.headers.map((h: string) => (
             <THWrapper key={h}>{h}</THWrapper>
           ))}
-        </tr>
+        </TRWrapper>
       </thead>
       <tbody>{props.bodys.map(bodyToRows)}</tbody>
     </TableWrapper>
