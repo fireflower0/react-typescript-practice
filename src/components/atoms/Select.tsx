@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const CustomSelect = styled(ReactSelect)`
   width: 200px;
+  margin: 5px;
 `;
 
 interface Props {
