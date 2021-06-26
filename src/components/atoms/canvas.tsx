@@ -53,8 +53,10 @@ const Canvas: React.FC<Props> = props => {
     const canvas: HTMLCanvasElement = getCanvas();
     if (!(canvas == null)) {
       const context: CanvasRenderingContext2D = getContext(canvas);
-      context.lineTo(x, y);
-      context.stroke();
+      if (!(context == null)) {
+        context.lineTo(x, y);
+        context.stroke();
+      }
     }
   };
 
@@ -65,13 +67,15 @@ const Canvas: React.FC<Props> = props => {
 
   useEffect(() => {
     const canvas: HTMLCanvasElement = getCanvas();
-    canvas.width = props.width;
-    canvas.height = props.height;
     if (!(canvas == null)) {
+      canvas.width = props.width;
+      canvas.height = props.height;
       const context: CanvasRenderingContext2D = getContext(canvas);
-      context.fillStyle = props.color;
-      context.fillRect(0, 0, props.width, props.height);
-      context.save();
+      if (!(context == null)) {
+        context.fillStyle = props.color;
+        context.fillRect(0, 0, props.width, props.height);
+        context.save();
+      }
     }
   }, []);
 
