@@ -1,32 +1,61 @@
 import React, { useEffect, useState, useRef } from 'react';
+import styled from 'styled-components';
 
-const Canvas: React.FC = () => {
+const CanvasWrapper = styled.canvas`
+  margin: 5px;
+  border: none;
+  border-radius: 3px;
+`;
+
+interface Props {
+  color: string;
+  width: number;
+  height: number;
+}
+
+const Canvas: React.FC<Props> = props => {
   const [drawing, setDrawing] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  type GetContext = {
-    (): CanvasRenderingContext2D;
+  interface GetCanvas {
+    (): HTMLCanvasElement;
     (): null;
-  };
+  }
 
-  const getContext = ((): CanvasRenderingContext2D | null => {
-    const canvas = canvasRef.current;
+  const getCanvas = ((): HTMLCanvasElement | null => {
+    return !(canvasRef == null) ? canvasRef.current : null;
+  }) as GetCanvas;
+
+  interface GetContext {
+    (canvas: HTMLCanvasElement): CanvasRenderingContext2D;
+    (canvas: HTMLCanvasElement): null;
+  }
+
+  const getContext = ((
+    canvas: HTMLCanvasElement,
+  ): CanvasRenderingContext2D | null => {
     return !(canvas == null) ? canvas.getContext('2d') : null;
   }) as GetContext;
 
   const startDrawing = (x: number, y: number) => {
     console.log(`startDrawing: x=${x}, y=${y}`);
     setDrawing(true);
-    const context = getContext();
-    context.moveTo(x, y);
+    const canvas: HTMLCanvasElement = getCanvas();
+    if (!(canvas == null)) {
+      const context: CanvasRenderingContext2D = getContext(canvas);
+      context.moveTo(x, y);
+    }
   };
 
   const draw = (x: number, y: number) => {
     if (!drawing) return;
-    const context = getContext();
-    context.lineTo(x, y);
-    context.stroke();
+    const canvas: HTMLCanvasElement = getCanvas();
+    if (!(canvas == null)) {
+      const context: CanvasRenderingContext2D = getContext(canvas);
+      context.lineTo(x, y);
+      context.stroke();
+    }
   };
 
   const endDrawing = () => {
@@ -35,15 +64,19 @@ const Canvas: React.FC = () => {
   };
 
   useEffect(() => {
-    const context: CanvasRenderingContext2D = getContext();
-    console.log(context);
-    context.fillRect(0, 0, 500, 500);
-    context.save();
+    const canvas: HTMLCanvasElement = getCanvas();
+    canvas.width = props.width;
+    canvas.height = props.height;
+    if (!(canvas == null)) {
+      const context: CanvasRenderingContext2D = getContext(canvas);
+      context.fillStyle = props.color;
+      context.fillRect(0, 0, props.width, props.height);
+      context.save();
+    }
   }, []);
 
   return (
-    <canvas
-      className="canvas"
+    <CanvasWrapper
       ref={canvasRef}
       onMouseDown={e =>
         startDrawing(e.nativeEvent.offsetX, e.nativeEvent.offsetY)

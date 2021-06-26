@@ -269,7 +269,17 @@ const Home: React.FC = () => {
         }
       />
 
-      <FieldSet labelText="Canvas" form={<Canvas />} />
+      <FieldSet
+        labelText="Canvas"
+        form={
+          <div>
+            <Canvas color="red" width={50} height={50} />
+            <Canvas color="green" width={50} height={50} />
+            <Canvas color="blue" width={50} height={50} />
+            <Canvas color="yellow" width={50} height={50} />
+          </div>
+        }
+      />
 
       <FieldSet
         labelText="CodeBlock"
