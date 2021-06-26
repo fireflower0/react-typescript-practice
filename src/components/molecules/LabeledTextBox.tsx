@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextBox from '../atoms/TextBox';
-import Label from '../atoms/Label';
+import TextBox from '../atoms/textBox';
+import Label from '../atoms/label';
 
 const FormWrapper = styled.div`
   margin: 5px;

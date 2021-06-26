@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HeadLine } from '../atoms/HeadLine';
+import { HeadLine } from '../atoms/headLine';
 
 const FormWrapper = styled.div`
   margin: 10px;

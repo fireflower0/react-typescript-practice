@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Navbar from './components/shared/Navbar';
-import Home from './components/pages/Home';
-import Animation from './components/pages/Animation';
-import About from './components/pages/About';
+import Navbar from './components/shared/navbar';
+import Home from './components/pages/home';
+import Animation from './components/pages/animation';
+import About from './components/pages/about';
 
 const FormWrapper = styled.div`
   margin: 10px;
