@@ -17,6 +17,7 @@ import Time from '../atoms/Time';
 import Color from '../atoms/Color';
 import Range from '../atoms/Range';
 import Progress from '../atoms/Progress';
+import Canvas from '../atoms/canvas';
 import CodeBlock from '../atoms/CodeBlock';
 import List from '../atoms/List';
 import Table from '../atoms/Table';
@@ -267,6 +268,8 @@ const Home: React.FC = () => {
           </div>
         }
       />
+
+      <FieldSet labelText="Canvas" form={<Canvas />} />
 
       <FieldSet
         labelText="CodeBlock"
