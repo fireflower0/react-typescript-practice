@@ -27,6 +27,10 @@ const Canvas: React.FC<Props> = props => {
     return !(canvasRef == null) ? canvasRef.current : null;
   }) as GetCanvas;
 
+  const isCanvas = (canvas: HTMLCanvasElement) => {
+    return canvas !== null;
+  };
+
   interface GetContext {
     (canvas: HTMLCanvasElement): CanvasRenderingContext2D;
     (canvas: HTMLCanvasElement): null;
@@ -35,14 +39,18 @@ const Canvas: React.FC<Props> = props => {
   const getContext = ((
     canvas: HTMLCanvasElement,
   ): CanvasRenderingContext2D | null => {
-    return !(canvas == null) ? canvas.getContext('2d') : null;
+    return isCanvas(canvas) ? canvas.getContext('2d') : null;
   }) as GetContext;
+
+  const isContext = (context: CanvasRenderingContext2D) => {
+    return context !== null;
+  };
 
   const startDrawing = (x: number, y: number) => {
     console.log(`startDrawing: x=${x}, y=${y}`);
     setDrawing(true);
     const canvas: HTMLCanvasElement = getCanvas();
-    if (!(canvas == null)) {
+    if (isCanvas(canvas)) {
       const context: CanvasRenderingContext2D = getContext(canvas);
       context.moveTo(x, y);
     }
@@ -51,9 +59,9 @@ const Canvas: React.FC<Props> = props => {
   const draw = (x: number, y: number) => {
     if (!drawing) return;
     const canvas: HTMLCanvasElement = getCanvas();
-    if (!(canvas == null)) {
+    if (isCanvas(canvas)) {
       const context: CanvasRenderingContext2D = getContext(canvas);
-      if (!(context == null)) {
+      if (isContext(context)) {
         context.lineTo(x, y);
         context.stroke();
       }
@@ -67,11 +75,11 @@ const Canvas: React.FC<Props> = props => {
 
   useEffect(() => {
     const canvas: HTMLCanvasElement = getCanvas();
-    if (!(canvas == null)) {
+    if (isCanvas(canvas)) {
       canvas.width = props.width;
       canvas.height = props.height;
       const context: CanvasRenderingContext2D = getContext(canvas);
-      if (!(context == null)) {
+      if (isContext(context)) {
         context.fillStyle = props.color;
         context.fillRect(0, 0, props.width, props.height);
         context.save();
