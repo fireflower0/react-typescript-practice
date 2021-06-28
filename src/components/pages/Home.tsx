@@ -273,10 +273,10 @@ const Home: React.FC = () => {
         labelText="Canvas"
         form={
           <div>
-            <Canvas color="red" width={50} height={50} />
-            <Canvas color="green" width={50} height={50} />
-            <Canvas color="blue" width={50} height={50} />
-            <Canvas color="yellow" width={50} height={50} />
+            <Canvas color="red" width={100} height={100} />
+            <Canvas color="green" width={100} height={100} />
+            <Canvas color="blue" width={100} height={100} />
+            <Canvas color="yellow" width={100} height={100} />
           </div>
         }
       />
