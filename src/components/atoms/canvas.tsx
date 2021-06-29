@@ -76,14 +76,12 @@ const Canvas: React.FC<Props> = props => {
   useEffect(() => {
     const canvas: HTMLCanvasElement = getCanvas();
     if (isCanvas(canvas)) {
-      // canvas.width = props.width;
-      // canvas.height = props.height;
+      canvas.width = props.width;
+      canvas.height = props.height;
       const context: CanvasRenderingContext2D = getContext(canvas);
       if (isContext(context)) {
         context.fillStyle = props.color;
-        context.fillRect(25, 25, props.width, props.height);
-        context.clearRect(45, 45, props.width - 40, props.height - 40);
-        context.strokeRect(50, 50, props.width - 50, props.height - 50);
+        context.fillRect(0, 0, props.width, props.height);
         context.save();
       }
     }
