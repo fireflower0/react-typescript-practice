@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 const CanvasWrapper = styled.canvas`
   margin: 5px;
-  border: none;
-  border-radius: 3px;
 `;
 
 interface Props {
