@@ -30,16 +30,20 @@ const TDWrapper = styled.td`
 
 interface Props {
   headers: string[];
-  bodys: unknown[];
+  bodys: { no: number; name: string; description: string }[];
 }
 
 const Table: React.FC<Props> = props => {
-  const bodyToRows = (body: unknown) => {
+  const bodyToRows = (body: {
+    no: number;
+    name: string;
+    description: string;
+  }) => {
     const b = Object.assign({}, {}, body);
-    const cells: string[] = Object.values(b);
+    const cells: (number | string)[] = Object.values(b);
     return (
       <TRWrapper key={cells[0]}>
-        {cells.map((v: string) => (
+        {cells.map((v: number | string) => (
           <TDWrapper key={v}>{v}</TDWrapper>
         ))}
       </TRWrapper>
