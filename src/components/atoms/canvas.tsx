@@ -25,7 +25,7 @@ const Canvas: React.FC<Props> = props => {
     return !(canvasRef == null) ? canvasRef.current : null;
   }) as GetCanvas;
 
-  const isCanvas = (canvas: HTMLCanvasElement) => {
+  const isCanvas = (canvas: HTMLCanvasElement | null) => {
     return canvas !== null;
   };
 
@@ -40,7 +40,7 @@ const Canvas: React.FC<Props> = props => {
     return isCanvas(canvas) ? canvas.getContext('2d') : null;
   }) as GetContext;
 
-  const isContext = (context: CanvasRenderingContext2D) => {
+  const isContext = (context: CanvasRenderingContext2D | null) => {
     return context !== null;
   };
 
