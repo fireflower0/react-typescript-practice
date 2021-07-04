@@ -72,14 +72,16 @@ const Canvas: React.FC<Props> = props => {
   };
 
   useEffect(() => {
+    const width = props.width;
+    const height = props.height;
     const canvas: HTMLCanvasElement = getCanvas();
     if (isCanvas(canvas)) {
-      canvas.width = props.width;
-      canvas.height = props.height;
+      canvas.width = width;
+      canvas.height = height;
       const context: CanvasRenderingContext2D = getContext(canvas);
       if (isContext(context)) {
         context.fillStyle = props.color;
-        context.fillRect(0, 0, props.width, props.height);
+        context.fillRect(0, 0, width, height);
         context.save();
       }
     }
