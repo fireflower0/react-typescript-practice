@@ -11,12 +11,7 @@ const FormWrapper = styled.div`
 const About: React.FC = () => {
   return (
     <FormWrapper>
-      <HeadLine.H1>HeadLine.H1</HeadLine.H1>
-      <HeadLine.H2>HeadLine.H2</HeadLine.H2>
-      <HeadLine.H3>HeadLine.H3</HeadLine.H3>
-      <HeadLine.H4>HeadLine.H4</HeadLine.H4>
-      <HeadLine.H5>HeadLine.H5</HeadLine.H5>
-      <HeadLine.H6>HeadLine.H6</HeadLine.H6>
+      <HeadLine.H1>About</HeadLine.H1>
     </FormWrapper>
   );
 };

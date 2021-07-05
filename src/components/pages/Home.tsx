@@ -17,6 +17,7 @@ import Time from '../atoms/time';
 import Color from '../atoms/color';
 import Range from '../atoms/range';
 import Progress from '../atoms/progress';
+import Image from '../atoms/Image';
 import Canvas from '../atoms/canvas';
 import CodeBlock from '../atoms/codeBlock';
 import List from '../atoms/list';
@@ -43,6 +44,10 @@ const Home: React.FC = () => {
   const [color, setColor] = useState('#e66465');
   const [range, setRange] = useState(75);
   const [numValue, setNumValue] = useState(0);
+  const [file, setFile] = useState<File | null>(null);
+  const loadFile = (files: FileList | null) => {
+    setFile(files !== null ? files[0] : null);
+  };
 
   const fruits = [
     { id: 'apple', labelText: 'りんご', value: 'apple' },
@@ -265,6 +270,18 @@ const Home: React.FC = () => {
             <Number value={numValue} setValue={setNumValue} min={0} max={100} />
             <Progress max="100" value={numValue} />
             {numValue} %
+          </div>
+        }
+      />
+
+      <FieldSet
+        labelText="Image"
+        form={
+          <div>
+            <input type="file" onChange={e => loadFile(e.target.files)} />
+            {file !== null ? (
+              <Image imagePath={file.path} width="100" height="100" />
+            ) : null}
           </div>
         }
       />
