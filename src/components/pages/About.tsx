@@ -12,6 +12,7 @@ const About: React.FC = () => {
   return (
     <FormWrapper>
       <HeadLine.H1>About</HeadLine.H1>
+      <p>React TypeScript Practice</p>
     </FormWrapper>
   );
 };
