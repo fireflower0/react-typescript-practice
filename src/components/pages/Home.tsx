@@ -280,7 +280,10 @@ const Home: React.FC = () => {
           <div>
             <input type="file" onChange={e => loadFile(e.target.files)} />
             {file !== null ? (
-              <Image imagePath={file.path} width="100" height="100" />
+              <div>
+                <Image imagePath={file.path} width="100" height="100" />
+                <Canvas imagePath={file.path} width={100} height={100} />
+              </div>
             ) : null}
           </div>
         }

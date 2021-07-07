@@ -6,7 +6,8 @@ const CanvasWrapper = styled.canvas`
 `;
 
 interface Props {
-  color: string;
+  imagePath?: string;
+  color?: string;
   width: number;
   height: number;
 }
@@ -72,6 +73,7 @@ const Canvas: React.FC<Props> = props => {
   };
 
   useEffect(() => {
+    const color = props.color;
     const width = props.width;
     const height = props.height;
     const canvas: HTMLCanvasElement = getCanvas();
@@ -80,7 +82,15 @@ const Canvas: React.FC<Props> = props => {
       canvas.height = height;
       const context: CanvasRenderingContext2D = getContext(canvas);
       if (isContext(context)) {
-        context.fillStyle = props.color;
+        if (!(props.imagePath == null)) {
+          const img = new Image();
+          img.src = props.imagePath;
+          img.onload = () => {
+            context.drawImage(img, 0, 0, width, height);
+          };
+        } else {
+          context.fillStyle = !(color == null) ? color : 'black';
+        }
         context.fillRect(0, 0, width, height);
         context.save();
       }
