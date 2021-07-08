@@ -73,7 +73,6 @@ const Canvas: React.FC<Props> = props => {
   };
 
   useEffect(() => {
-    const color = props.color;
     const width = props.width;
     const height = props.height;
     const canvas: HTMLCanvasElement = getCanvas();
@@ -89,6 +88,7 @@ const Canvas: React.FC<Props> = props => {
             context.drawImage(img, 0, 0, width, height);
           };
         } else {
+          const color = props.color;
           context.fillStyle = !(color == null) ? color : 'black';
         }
         context.fillRect(0, 0, width, height);
