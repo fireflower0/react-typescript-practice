@@ -45,9 +45,14 @@ const Canvas: React.FC<Props> = props => {
     return context !== null;
   };
 
-  const startDrawing = (x: number, y: number) => {
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
+    const x: number = e.nativeEvent.offsetX;
+    const y: number = e.nativeEvent.offsetY;
+
     console.log(`startDrawing: x=${x}, y=${y}`);
+
     setDrawing(true);
+
     const canvas: HTMLCanvasElement = getCanvas();
     if (isCanvas(canvas)) {
       const context: CanvasRenderingContext2D = getContext(canvas);
@@ -100,9 +105,7 @@ const Canvas: React.FC<Props> = props => {
   return (
     <CanvasWrapper
       ref={canvasRef}
-      onMouseDown={e =>
-        startDrawing(e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-      }
+      onMouseDown={e => startDrawing(e)}
       onMouseUp={() => endDrawing()}
       onMouseLeave={() => endDrawing()}
       onMouseMove={e => draw(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
