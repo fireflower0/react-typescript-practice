@@ -60,12 +60,14 @@ const Canvas: React.FC<Props> = props => {
     }
   };
 
-  const draw = (x: number, y: number) => {
+  const draw = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
     if (!drawing) return;
     const canvas: HTMLCanvasElement = getCanvas();
     if (isCanvas(canvas)) {
       const context: CanvasRenderingContext2D = getContext(canvas);
       if (isContext(context)) {
+        const x: number = e.nativeEvent.offsetX;
+        const y: number = e.nativeEvent.offsetY;
         context.lineTo(x, y);
         context.stroke();
       }
@@ -108,7 +110,7 @@ const Canvas: React.FC<Props> = props => {
       onMouseDown={e => startDrawing(e)}
       onMouseUp={() => endDrawing()}
       onMouseLeave={() => endDrawing()}
-      onMouseMove={e => draw(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
+      onMouseMove={e => draw(e)}
     />
   );
 };
