@@ -80,8 +80,8 @@ const Canvas: React.FC<Props> = props => {
   };
 
   useEffect(() => {
-    const width = props.width;
-    const height = props.height;
+    const width: number = props.width;
+    const height: number = props.height;
     const canvas: HTMLCanvasElement = getCanvas();
     if (isCanvas(canvas)) {
       canvas.width = width;
