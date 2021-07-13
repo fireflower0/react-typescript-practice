@@ -297,6 +297,9 @@ const Home: React.FC = () => {
             <Canvas color="green" width={50} height={50} />
             <Canvas color="blue" width={100} height={50} />
             <Canvas color="yellow" width={50} height={100} />
+            <div>
+              <Canvas color="white" width={500} height={500} />
+            </div>
           </div>
         }
       />
