@@ -16,7 +16,7 @@ const FormWrapper = styled.div`
 
 const App = () => {
   useEffect(() => {
-    document.title = 'My Home Page';
+    document.title = 'My App';
     document.body.style.margin = '0';
     document.body.style.backgroundColor = '#263238';
   }, []);
