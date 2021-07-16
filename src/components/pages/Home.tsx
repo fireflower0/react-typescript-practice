@@ -22,6 +22,7 @@ import Canvas from '../atoms/canvas';
 import CodeBlock from '../atoms/codeBlock';
 import List from '../atoms/list';
 import Table from '../atoms/table';
+import Moment from 'react-moment';
 
 const FormWrapper = styled.div`
   margin: 10px;
@@ -228,7 +229,7 @@ const Home: React.FC = () => {
         form={
           <div>
             <Date defaultValue={date} setDate={setDate} />
-            日付：{date}
+            日付：<Moment>{date}</Moment>
           </div>
         }
       />
